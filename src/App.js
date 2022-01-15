@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link, Routes, Route } from 'react-router-dom';
+import Grid from './Components/Grid/Grid.js';
 import './App.css';
 
 class App extends Component  {
@@ -26,6 +28,7 @@ class App extends Component  {
         responseJson.docs.filter(character => character.name === player)
       )
       this.setState({characters: filteredCharacters})
+      console.log(this.state.characters)
     } catch(err) {
       console.log(err)
     }
@@ -37,7 +40,10 @@ componentDidMount = () => {
 }
   render = () => {
     return (
-      <div>Fantasy Fellowship</div>
+      <div>
+       <header>Fantasy Fellowship</header>
+      <Grid characters={this.state.characters}></Grid>
+      </div>
     )
   }
 }
