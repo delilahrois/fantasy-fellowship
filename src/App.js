@@ -72,7 +72,7 @@ class App extends Component  {
           <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer}/>}></Route>
         </Routes>
         <footer>
-
+            Created by Delilah Rose 🧝‍♀️
         </footer>
       </div>
     )
