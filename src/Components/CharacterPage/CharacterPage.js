@@ -1,12 +1,16 @@
-import React from 'react'
+import React from 'react';
 import './CharacterPage.css';
 
-export default function CharacterPage() {
+const CharacterPage = ({player, addPlayer}) => {
+
+
   return (
-    <div>
-      
+    <div className='character'>
+      <p>{player.name}</p>
     </div>
   )
 }
+
+export default CharacterPage;
 
 

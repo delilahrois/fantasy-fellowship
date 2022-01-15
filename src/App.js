@@ -9,7 +9,8 @@ class App extends Component  {
     super();
     this.state = {
       characters: [],
-      team: []
+      team: [],
+      selectedPlayer: ''
     }
   }
 
@@ -20,7 +21,7 @@ class App extends Component  {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer sNVXztaU5nXNFJjGiLRW' n
+          'Authorization': 'Bearer sNVXztaU5nXNFJjGiLRW'
         }
       })
       const responseJson = await response.json();
@@ -44,6 +45,16 @@ class App extends Component  {
     }) })
   }
 
+  addPlayer = (e) => {
+    this.setState({ team: [ ...this.state.team, e.target.value ] })
+  }
+
+  findPlayer = (name) => {
+    const foundPlayer = this.state.characters.find(character => character.name === name)
+    console.log(foundPlayer)
+    this.setState({selectedPlayer: foundPlayer})
+  }
+
 
   componentDidMount = () => {
     this.fetchData();
@@ -52,13 +63,13 @@ class App extends Component  {
   render = () => {
     return (
       <div>
-        <Link to="/"><header>Fantasy Fellowship</header></Link>
+        <Link to="/" style={{textDecoration: 'none'}}><header>Fantasy Fellowship</header></Link>
         <Routes>
           <Route path="/" element={
-            <Grid characters={this.state.characters} handleClick={this.handleClick}></Grid>
+            <Grid characters={this.state.characters} addPlayer={this.addPlayer} findPlayer={this.findPlayer}></Grid>
             }
           />
-          <Route path="/:name" element={<CharacterPage />}></Route>
+          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer}/>}></Route>
         </Routes>
         <footer>
 
