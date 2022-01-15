@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
 import Grid from './Components/Grid/Grid.js';
+import CharacterPage from './Components/CharacterPage/CharacterPage';
 import './App.css';
 
 class App extends Component  {
@@ -19,7 +20,7 @@ class App extends Component  {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer sNVXztaU5nXNFJjGiLRW'
+          'Authorization': 'Bearer sNVXztaU5nXNFJjGiLRW' n
         }
       })
       const responseJson = await response.json();
@@ -28,21 +29,40 @@ class App extends Component  {
         responseJson.docs.filter(character => character.name === player)
       )
       this.setState({characters: filteredCharacters})
+      this.createPlayers();
       console.log(this.state.characters)
     } catch(err) {
       console.log(err)
     }
   }
 
+  createPlayers = () => {
+    this.setState({ characters: this.state.characters.map(character => {
+      let player = character;
+      player.stats = { intelligence: 0, hitPoints: 0, survivalSkills: 0 }
+      return player;
+    }) })
+  }
 
-componentDidMount = () => {
-  this.fetchData();
-}
+
+  componentDidMount = () => {
+    this.fetchData();
+  }
+
   render = () => {
     return (
       <div>
-       <header>Fantasy Fellowship</header>
-      <Grid characters={this.state.characters}></Grid>
+        <Link to="/"><header>Fantasy Fellowship</header></Link>
+        <Routes>
+          <Route path="/" element={
+            <Grid characters={this.state.characters} handleClick={this.handleClick}></Grid>
+            }
+          />
+          <Route path="/:name" element={<CharacterPage />}></Route>
+        </Routes>
+        <footer>
+
+        </footer>
       </div>
     )
   }
