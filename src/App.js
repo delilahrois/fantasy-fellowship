@@ -3,6 +3,7 @@ import { Link, Routes, Route } from 'react-router-dom';
 import Grid from './Components/Grid/Grid.js';
 import CharacterPage from './Components/CharacterPage/CharacterPage';
 import Header from './Components/Header/Header';
+import Fellowship from './Components/Fellowship/Fellowship';
 import './App.css';
 
 class App extends Component  {
@@ -71,6 +72,7 @@ class App extends Component  {
             }
           />
           <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer}/>}></Route>
+          <Route path="/fellowship" element={<Fellowship team={this.state.team} />}></Route>
         </Routes>
         <footer>
             Created by Delilah Rose 🧝‍♀️
