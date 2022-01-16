@@ -3,10 +3,11 @@ import './CharacterPage.css';
 
 const CharacterPage = ({player, addPlayer}) => {
 
+  console.log(player, '<<<<<<>>>>PLAYER')
 
   return (
     <div className='character'>
-      <p>{player.name}</p>
+      <p>{player[0].name}</p> 
     </div>
   )
 }

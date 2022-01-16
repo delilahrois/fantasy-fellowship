@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link, Routes, Route } from 'react-router-dom';
 import Grid from './Components/Grid/Grid.js';
 import CharacterPage from './Components/CharacterPage/CharacterPage';
+import Header from './Components/Header/Header';
 import './App.css';
 
 class App extends Component  {
@@ -50,7 +51,7 @@ class App extends Component  {
   }
 
   findPlayer = (name) => {
-    const foundPlayer = this.state.characters.find(character => character.name === name)
+    const foundPlayer = this.state.characters.find(character => character[0].name === name)
     console.log(foundPlayer)
     this.setState({selectedPlayer: foundPlayer})
   }
@@ -63,13 +64,13 @@ class App extends Component  {
   render = () => {
     return (
       <div>
-        <Link to="/" style={{textDecoration: 'none'}}><header>Fantasy Fellowship</header></Link>
+        <Header />
         <Routes>
           <Route path="/" element={
             <Grid characters={this.state.characters} addPlayer={this.addPlayer} findPlayer={this.findPlayer}></Grid>
             }
           />
-          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer}/>}></Route>
+          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer}/>}></Route>
         </Routes>
         <footer>
             Created by Delilah Rose 🧝‍♀️
