@@ -8,7 +8,9 @@ const CharacterPage = ({player, addPlayer}) => {
 
   return (
     <div className='character'>
-      <p>{character.name}</p> 
+      <h2>{character.name}</h2> 
+        <p>{character.race}</p>
+        <p>Birth {character.birth ? character.birth : '(unknown)'}</p>
       <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
     </div>
   )
