@@ -10,7 +10,7 @@ const Header = () => {
         <header className="header-title"><Link to="/" style={{textDecoration: 'none'}}>Fantasy Fellowship</Link></header>
       </div>
       <div className="nav-container">
-        <Link to="/fellowship">Your Fellowship</Link>
+        <Link to="/fellowship" style={{textDecoration: 'none'}}>Your Fellowship</Link>
       </div>
     </div>
   )

@@ -14,7 +14,7 @@ const Fellowship = ({team}) => {
       </div>
     )
   })
-  : teamMembers = `You haven't added anyone to your Fellowship yet.`
+  : teamMembers = <p>You haven't added anyone to your Fellowship yet.</p>
 
   return (
     <div className="team-container">
