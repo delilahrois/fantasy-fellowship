@@ -46,8 +46,8 @@ class App extends Component  {
     }) })
   }
 
-  addPlayer = (e) => {
-    this.setState({ team: [ ...this.state.team, e.target.value ] })
+  addPlayer = (player) => {
+    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player] }) : console.log(player)
   }
 
   findPlayer = (name) => {
@@ -70,7 +70,7 @@ class App extends Component  {
             <Grid characters={this.state.characters} addPlayer={this.addPlayer} findPlayer={this.findPlayer}></Grid>
             }
           />
-          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer}/>}></Route>
+          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer}/>}></Route>
         </Routes>
         <footer>
             Created by Delilah Rose 🧝‍♀️

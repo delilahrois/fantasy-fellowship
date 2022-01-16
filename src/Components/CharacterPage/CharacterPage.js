@@ -3,11 +3,13 @@ import './CharacterPage.css';
 
 const CharacterPage = ({player, addPlayer}) => {
 
-  console.log(player, '<<<<<<>>>>PLAYER')
+  const character = player[0];
+  const firstName = character.name.split(' ')[0]
 
   return (
     <div className='character'>
-      <p>{player[0].name}</p> 
+      <p>{character.name}</p> 
+      <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
     </div>
   )
 }

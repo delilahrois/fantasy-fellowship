@@ -6,7 +6,7 @@ import './Grid.css';
 const Grid = ({characters, findPlayer, addPlayer}) => {
 
   const players = characters.map(character => 
-    <Link to={`/${character[0].name.split(' ')[0].toLowerCase()}`}>
+    <Link to={`/${character[0].name.split(' ')[0].toLowerCase()}`} style={{textDecoration: 'none'}}>
       <Character key={character[0].id} player={character[0]} stats={character[1]} findPlayer={findPlayer}></Character>
     </Link>
   )
