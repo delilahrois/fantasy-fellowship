@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Fellowship from '../Fellowship/Fellowship';
 import './Header.css';
 
 const Header = () => {
