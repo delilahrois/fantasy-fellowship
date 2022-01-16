@@ -6,7 +6,9 @@ const Header = () => {
 
   return (
     <div className="header">
-      <header className="header-title"><Link to="/" style={{textDecoration: 'none'}}>Fantasy Fellowship</Link></header>
+      <div className="title-container">
+        <header className="header-title"><Link to="/" style={{textDecoration: 'none'}}>Fantasy Fellowship</Link></header>
+      </div>
     </div>
   )
 }
