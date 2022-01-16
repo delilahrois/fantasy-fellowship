@@ -3,10 +3,11 @@ import './Character.css';
 
 const Character = ({player, findPlayer}) => {
 
+  const character = player[0];
 
   return (
     <div className="player-container">
-      <h2 className="player" onClick={() => findPlayer(player.name)}>{player.name}</h2>
+      <h2 className="player" onClick={() => findPlayer(character.name)}>{character.name}</h2>
     </div>
   )
 }

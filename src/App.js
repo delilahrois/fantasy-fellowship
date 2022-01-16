@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Grid from './Components/Grid/Grid.js';
 import CharacterPage from './Components/CharacterPage/CharacterPage';
 import Header from './Components/Header/Header';
@@ -33,7 +33,6 @@ class App extends Component  {
       )
       this.setState({characters: filteredCharacters})
       this.createPlayers();
-      console.log(this.state.characters)
     } catch(err) {
       console.log(err)
     }
@@ -68,7 +67,7 @@ class App extends Component  {
         <Header />
         <Routes>
           <Route path="/" element={
-            <Grid characters={this.state.characters} addPlayer={this.addPlayer} findPlayer={this.findPlayer}></Grid>
+            <Grid characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} ></Grid>
             }
           />
           <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer}/>}></Route>

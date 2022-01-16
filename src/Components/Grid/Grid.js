@@ -5,10 +5,21 @@ import './Grid.css';
 
 const Grid = ({characters, findPlayer, addPlayer}) => {
 
-  const players = characters.map(character => 
-    <Link to={`/${character[0].name.split(' ')[0].toLowerCase()}`} style={{textDecoration: 'none'}}>
-      <Character key={character[0].id} player={character[0]} stats={character[1]} findPlayer={findPlayer}></Character>
-    </Link>
+
+  const players = characters.map(character => {
+
+    const player = character[0];
+    const firstName = player.name.split(' ')[0];
+
+    return (
+      <div>
+        <Link to={`/${player.name.split(' ')[0].toLowerCase()}`} style={{textDecoration: 'none'}}>
+          <Character key={player.id} player={character} stats={character[1]} findPlayer={findPlayer} addPlayer={addPlayer}></Character>
+        </Link>
+        <button onClick={() => addPlayer(character)}>Add {firstName} to Fellowship</button>
+    </div>
+     )
+    }
   )
 
   return (
