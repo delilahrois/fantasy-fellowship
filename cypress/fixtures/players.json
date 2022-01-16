@@ -1,0 +1,30 @@
+[{
+  "docs": [
+    {
+      "birth": "22 September ,TA 2968",
+      "death": "Unknown (Last sighting ,September 29 ,3021,) (,SR 1421,)",
+      "gender": "Male",
+      "hair": "Brown",
+      "height": "1.06m (3'6\")",
+      "name": "Frodo Baggins",
+      "race": "Hobbit",
+      "realm": "",
+      "spouse": "",
+      "wikiUrl": "http://lotr.wikia.com//wiki/Frodo_Baggins",
+      "_id": "5cd99d4bde30eff6ebccfc15"
+    },
+    {
+      "birth": "April 6 ,2980",
+      "death": "Still alive, after going to the ,Undying Lands, in ,FO 61",
+      "gender": "Male",
+      "hair": "Blond (movie)",
+      "height": "1.22m (4'0\")",
+      "name": "Samwise Gamgee",
+      "race": "Hobbit",
+      "realm": "",
+      "spouse": "Rosie Cotton",
+      "wikiUrl": "http://lotr.wikia.com//wiki/Samwise_Gamgee",
+      "_id": "5cd99d4bde30eff6ebccfd0d"
+    }
+  ]
+}]

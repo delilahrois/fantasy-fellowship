@@ -11,6 +11,7 @@ const Fellowship = ({team}) => {
     return (
       <div className="player-card">
         <p>{name}</p>
+        <button onClick={() => }>Remove player</button>
       </div>
     )
   })
