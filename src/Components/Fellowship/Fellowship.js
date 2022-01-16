@@ -1,17 +1,17 @@
 import React from 'react';
 
-const Fellowship = ({team}) => {
+const Fellowship = ({team, removePlayer}) => {
 
   let teamMembers;
 
-  team.length > 0 ? 
+  team.length ? 
 
   teamMembers = team.map(player => {
     let { name } = player[0];
     return (
       <div className="player-card">
         <p>{name}</p>
-        <button onClick={() => }>Remove player</button>
+        <button onClick={() => removePlayer(player)}>Remove player</button>
       </div>
     )
   })

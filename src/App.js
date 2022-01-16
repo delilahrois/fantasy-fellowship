@@ -51,6 +51,11 @@ class App extends Component  {
     !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player] }) : console.log(player)
   }
 
+  removePlayer = (player) => {
+    const filteredPlayers = this.state.team.filter(character => character !== player)
+    this.setState({ team: [ ...filteredPlayers ] }) && console.log('player has been removed')
+  }
+
   findPlayer = (name) => {
     const foundPlayer = this.state.characters.find(character => character[0].name === name)
     console.log(foundPlayer)
@@ -68,11 +73,11 @@ class App extends Component  {
         <Header />
         <Routes>
           <Route path="/" element={
-            <Grid characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} ></Grid>
+            <Grid characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} removePlayer={this.removePlayer}></Grid>
             }
           />
-          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer}/>}></Route>
-          <Route path="/fellowship" element={<Fellowship team={this.state.team} />}></Route>
+          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer} />}></Route>
+          <Route path="/fellowship" element={<Fellowship team={this.state.team} removePlayer={this.removePlayer} />}></Route>
         </Routes>
         <footer>
             Created by Delilah Rose 🧝‍♀️
