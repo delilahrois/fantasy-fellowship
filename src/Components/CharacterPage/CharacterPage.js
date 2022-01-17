@@ -6,6 +6,9 @@ const CharacterPage = ({player, image, addPlayer}) => {
   const character = player[0];
   const firstName = character.name.split(' ')[0]
 
+  //  !character.name ? fetchData() 
+  // characters in local storage?
+
   return (
     <div className='character'>
       <h2>{character.name}</h2> 
