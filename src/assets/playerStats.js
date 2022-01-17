@@ -1,5 +1,5 @@
 const playerStats = {
-  frodo: {
+  'Frodo Baggins': {
 
   },
   sam: {

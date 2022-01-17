@@ -5,14 +5,14 @@ import './Header.css';
 const Header = () => {
 
   return (
-    <div className="header">
+    <section className="header">
       <div className="title-container">
-        <header className="header-title"><Link to="/" style={{textDecoration: 'none'}}>Fantasy Fellowship</Link></header>
+        <h1 className="header-title"><Link to="/" style={{textDecoration: 'none'}}>Fantasy Fellowship</Link></h1>
       </div>
       <div className="nav-container">
         <Link to="/fellowship" style={{textDecoration: 'none'}}>Your Fellowship</Link>
       </div>
-    </div>
+    </section>
   )
 }
 
