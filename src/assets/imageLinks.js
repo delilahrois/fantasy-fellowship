@@ -1,8 +1,8 @@
-const images = {
-  frodo: 'https://www.looper.com/img/gallery/frodo-baggins-entire-backstory-explained/intro-1582640416.jpg',
-  sam: 'https://www.theonering.net/torwp/wp-content/uploads/2013/05/samwise-gamgee.jpg',
-  pippin: '',
-  merry: '',
+const imageLinks = {
+  'Frodo Baggins': 'https://www.looper.com/img/gallery/frodo-baggins-entire-backstory-explained/intro-1582640416.jpg',
+  'Samwise Gamgee': 'https://www.theonering.net/torwp/wp-content/uploads/2013/05/samwise-gamgee.jpg',
+  'Peregrin Took': 'https://images.squarespace-cdn.com/content/v1/5d479334e20d100001fe300e/1565121220520-4BA8CGL712ZZ3C1ST4XP/59709136_1690438884434968_4198860612408705024_n.jpg',
+  'Meriadoc Brandybuck': '',
   gandalf: '',
   aragorn: '',
   legolas: '',
@@ -29,4 +29,4 @@ const images = {
   haldir: ''
 }
 
-export default images;
+export default imageLinks;

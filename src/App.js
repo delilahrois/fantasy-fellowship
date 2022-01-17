@@ -4,6 +4,7 @@ import Grid from './Components/Grid/Grid.js';
 import CharacterPage from './Components/CharacterPage/CharacterPage';
 import Header from './Components/Header/Header';
 import Fellowship from './Components/Fellowship/Fellowship';
+import imageLinks from './assets/imageLinks';
 import './App.css';
 
 class App extends Component  {
@@ -43,6 +44,7 @@ class App extends Component  {
     this.setState({ characters: this.state.characters.map(character => {
       let player = character;
       player.stats = { intelligence: 0, hitPoints: 0, survivalSkills: 0 }
+      player.image = this.getImage(character[0].name)
       return player;
     }) })
   }
@@ -57,9 +59,14 @@ class App extends Component  {
   }
 
   findPlayer = (name) => {
-    const foundPlayer = this.state.characters.find(character => character[0].name === name)
-    console.log(foundPlayer)
-    this.setState({selectedPlayer: foundPlayer})
+    const foundPlayer = this.state.characters.find(character => character[0].name === name);
+    this.setState({selectedPlayer: foundPlayer});
+  }
+
+  getImage = (name) => {
+    const url = imageLinks[name];
+    console.log(url)
+    return url;
   }
 
 

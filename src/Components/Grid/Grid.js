@@ -10,11 +10,12 @@ const Grid = ({characters, findPlayer, addPlayer}) => {
 
     const player = character[0];
     const firstName = player.name.split(' ')[0];
+    const image = character.image;
 
     return (
       <div>
         <Link to={`/${player.name.split(' ')[0].toLowerCase()}`} style={{textDecoration: 'none'}}>
-          <Character key={player.id} player={character} stats={character[1]} findPlayer={findPlayer} addPlayer={addPlayer}></Character>
+          <Character key={player.id} player={character} stats={character[1]} image={image} findPlayer={findPlayer} addPlayer={addPlayer}></Character>
         </Link>
         <button onClick={() => addPlayer(character)}>Add {firstName} to Fellowship</button>
     </div>
