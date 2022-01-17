@@ -50,7 +50,7 @@ class App extends Component  {
   }
 
   addPlayer = (player) => {
-    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player] }) : console.log(player)
+    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player] }) : console.log('this player has already been added')
   }
 
   removePlayer = (player) => {
