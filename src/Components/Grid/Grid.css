@@ -1,0 +1,37 @@
+.add-player-btn {
+  font-family: 'Bilbo', cursive;
+  font-size: 1.5vw;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.player-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border: 2px solid pink;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
+  color: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-gap: 4em;
+  margin: 5% 10%;
+  overflow: hidden;
+}
+
+.greeting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

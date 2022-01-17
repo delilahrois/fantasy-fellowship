@@ -6,6 +6,18 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-image: url(https://images4.alphacoders.com/843/thumb-1920-84316.jpg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: white;
+  /* overflow: none; */
 }
+
+.footer {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  font-size: larger;
+}
+

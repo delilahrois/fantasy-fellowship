@@ -1,6 +1,7 @@
 import React from 'react';
+import './Fellowship.css';
 
-const Fellowship = ({team, removePlayer}) => {
+const Fellowship = ({team, findPlayer, removePlayer}) => {
 
   let teamMembers;
 
@@ -10,6 +11,7 @@ const Fellowship = ({team, removePlayer}) => {
     let { name } = player[0];
     return (
       <div className="player-card">
+        <img src={player.image} alt={player.name} className='grid-img' id={player.id} onClick={() => findPlayer(player.name)}></img>
         <p>{name}</p>
         <button onClick={() => removePlayer(player)}>Remove player</button>
       </div>
@@ -18,9 +20,14 @@ const Fellowship = ({team, removePlayer}) => {
   : teamMembers = <p>You haven't added anyone to your Fellowship yet.</p>
 
   return (
-    <div className="team-container">
-      {teamMembers}
-    </div>
+    <>
+      <section className="points-header">
+        {/* <h2>Your Fellowship's Current Scores:</h2> */}
+      </section>
+      <div className="team-container">
+        {teamMembers}
+      </div>
+    </>
   )
 }
 

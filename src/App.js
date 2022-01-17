@@ -66,7 +66,6 @@ class App extends Component  {
 
   getImage = (name) => {
     const url = imageLinks[name];
-    console.log(url)
     return url;
   }
 
@@ -77,17 +76,17 @@ class App extends Component  {
 
   render = () => {
     return (
-      <div>
+      <div className="App">
         <Header />
         <Routes>
           <Route path="/" element={
             <Grid characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} removePlayer={this.removePlayer}></Grid>
             }
           />
-          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer} />}></Route>
-          <Route path="/fellowship" element={<Fellowship team={this.state.team} removePlayer={this.removePlayer} />}></Route>
+          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} image={this.state.selectedPlayer.image} addPlayer={this.addPlayer} />}></Route>
+          <Route path="/fellowship" element={<Fellowship team={this.state.team} findPlayer={this.findPlayer} removePlayer={this.removePlayer} />}></Route>
         </Routes>
-        <footer>
+        <footer className="footer">
             Created by Delilah Rose 🧝‍♀️
         </footer>
       </div>
