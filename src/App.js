@@ -19,12 +19,13 @@ class App extends Component  {
 
 
   fetchData = async () => {
+    const key = process.env.REACT_APP_API_KEY;
     try {
       const response = await fetch('https://the-one-api.dev/v2/character', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer sNVXztaU5nXNFJjGiLRW'
+          'Authorization': key
         }
       })
       const responseJson = await response.json();
@@ -35,12 +36,12 @@ class App extends Component  {
       )
       this.setState({characters: filteredCharacters})
       this.createPlayers();
-      console.log(this.state.characters)
+      // console.log(this.state.characters)
     } catch(err) {
       console.log(err)
     }
   }
-
+  
   createPlayers = () => {
     this.setState({ characters: this.state.characters.map(character => {
       let player = character;
