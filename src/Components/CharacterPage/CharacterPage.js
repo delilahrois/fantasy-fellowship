@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useParams} from 'react-router-dom';
+import {useParams, useLocation} from 'react-router-dom';
+import ErrorPage from '../ErrorPage/ErrorPage';
 import './CharacterPage.css';
 
 const CharacterPage = ({player, addPlayer, characters}) => {
@@ -19,10 +20,15 @@ const CharacterPage = ({player, addPlayer, characters}) => {
     <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
     </div> 
 
+    console.log(useLocation())
+
+    let displayInfo;
+    selectedPlayer ? displayInfo = characterInfo : displayInfo = <ErrorPage />
+
 
   return (
     <>
-      {characterInfo}
+      {displayInfo}
     </>
   )
 } 

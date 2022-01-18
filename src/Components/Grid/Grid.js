@@ -6,13 +6,15 @@ import './Grid.css';
 
 const Grid = ({characters, findPlayer, addPlayer, msg}) => {
 
-  Grid.propTypes = {
-    characters: PropTypes.arrayOf(PropTypes.array).isRequired,
-    msg: PropTypes.string.isRequired
-  }
+  // Grid.propTypes = {
+  //   characters: PropTypes.arrayOf(PropTypes.object).isRequired,
+  //   msg: PropTypes.string.isRequired
+  // }
 
 
   const players = characters.map(character => {
+
+    console.log(character)
 
     const player = character[0];
     const firstName = player.name.split(' ')[0];
