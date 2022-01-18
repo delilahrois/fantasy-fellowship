@@ -1,9 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Character from '../Character/Character';
 import {Link} from 'react-router-dom';
 import './Grid.css';
 
 const Grid = ({characters, findPlayer, addPlayer, msg}) => {
+
+  Grid.propTypes = {
+    characters: PropTypes.arrayOf(PropTypes.object),
+    msg: PropTypes.string
+  }
 
 
   const players = characters.map(character => {

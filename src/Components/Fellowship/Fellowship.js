@@ -1,7 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Fellowship.css';
 
 const Fellowship = ({team, findPlayer, removePlayer}) => {
+
+  Fellowship.propTypes = {
+    team: PropTypes.arrayOf(PropTypes.object)
+  }
 
   let teamMembers;
 

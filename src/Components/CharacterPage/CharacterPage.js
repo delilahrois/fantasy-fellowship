@@ -1,13 +1,24 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import './CharacterPage.css';
 
 const CharacterPage = ({player, image, addPlayer}) => {
 
+  CharacterPage.propTypes = {
+    player: PropTypes.object,
+    image: PropTypes.string
+  }
+
   const character = player[0];
   const firstName = character.name.split(' ')[0]
 
+  useEffect(() => {
+    refresh();
+  })
 
- 
+  const refresh = () => {
+
+  }
 
   //  !character.name ? fetchData() 
   // characters in local storage?
