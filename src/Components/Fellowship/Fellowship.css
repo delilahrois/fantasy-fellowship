@@ -1,6 +1,6 @@
 .team-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 4em;
   margin: 5% 10%;
   overflow: hidden;
@@ -11,8 +11,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  width: 200px;
   margin: 20px;
   padding: 10px;
   color: white;
