@@ -9,19 +9,16 @@ const CharacterPage = ({player, addPlayer, characters}) => {
   const character = useParams().name;
   const selectedPlayer = characters && characters.find(person => person.name.includes(character))
 
-  const firstName = selectedPlayer && selectedPlayer.name.split(' ')[0]
-  console.log(firstName)
+  const firstName = selectedPlayer && selectedPlayer.name.split(' ')[0];
 
   const characterInfo = selectedPlayer &&
     <div className='character'>
-    <h2 className="character-header">{character}</h2> 
-    <img src={selectedPlayer.image} alt={selectedPlayer.name} className="character-img"></img>
-      <p className="character-text">{character.race}</p>
-      <p className="character-text">Birth {selectedPlayer.birth ? selectedPlayer.birth : '(unknown)'}</p>
-    <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
+      <h2 className="character-header">{character}</h2> 
+      <img src={selectedPlayer.image} alt={selectedPlayer.name} className="character-img"></img>
+        <p className="character-text">{character.race}</p>
+        <p className="character-text">Birth {selectedPlayer.birth ? selectedPlayer.birth : '(unknown)'}</p>
+      <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
     </div> 
-
-    console.log(useLocation())
 
     let displayInfo;
     selectedPlayer ? displayInfo = characterInfo : displayInfo = <ErrorPage />

@@ -6,24 +6,18 @@ import './Grid.css';
 
 const Grid = ({characters, findPlayer, addPlayer, msg}) => {
 
-  // Grid.propTypes = {
-  //   characters: PropTypes.arrayOf(PropTypes.object).isRequired,
-  //   msg: PropTypes.string.isRequired
-  // }
-
-
   const players = characters.map(character => {
 
 
     const player = character;
     const firstName = player.name.split(' ')[0];
-    console.log(firstName)
     const image = character.image;
+    const key = character._id;
 
     return (
       <div className="player-container">
         <Link to={`/${player.name.split(' ')[0]}`} style={{textDecoration: 'none'}}>
-          <Character key={player.id} player={character} stats={character[1]} image={image} findPlayer={findPlayer} addPlayer={addPlayer}></Character>
+          <Character key={key} player={character} stats={character[1]} image={image} findPlayer={findPlayer} addPlayer={addPlayer}></Character>
         </Link>
         <button className="add-player-btn" id={player.id} onClick={() => addPlayer(character)}>Add {firstName} to Fellowship</button>
       </div>
@@ -46,3 +40,8 @@ const Grid = ({characters, findPlayer, addPlayer, msg}) => {
 }
 
 export default Grid;
+
+  Grid.propTypes = {
+    characters: PropTypes.arrayOf(PropTypes.object).isRequired,
+    msg: PropTypes.string.isRequired
+  }

@@ -11,23 +11,22 @@
 .title-container {
   display: flex;
   justify-content: center;
+  margin-left: 5%;
   text-decoration: none;
-  width: 30%;
-  font-size: 3vw;
+  width: 40%;
+  font-size: 2vw;
 }
 
 .nav-container {
-  width: 70%;
+  width: 60%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  margin-right: 15%;
   font-size: 2vw;
 }
-/* 
-.header-title {
-  color: white;
-}
 
-.header-title:hover {
-  color: light green;
-} */
+.link {
+  text-decoration: none;
+  color: #daa520;
+}

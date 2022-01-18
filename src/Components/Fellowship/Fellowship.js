@@ -12,7 +12,6 @@ const Fellowship = ({team, findPlayer, removePlayer}) => {
   teamMembers = team.map(player => {
     
     const firstName = player.name.split(' ')[0];
-    console.log(player._id)
    
     return (
       <div className="player-card">
