@@ -1,8 +1,6 @@
 .header {
   display: flex;
   justify-content: flex-start;
-  padding: 2%;
-  /* background-image: url(https://i.pinimg.com/originals/35/bd/a4/35bda4d45adedb6e097dc3038f937117.jpg); */
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;

@@ -20,19 +20,15 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  height: 200px;
-  width: 200px;
   margin: 20px;
   padding: 10px;
-  color: white;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 2em;
   margin: 0% 10%;
-
 }
 
 .greeting {
@@ -40,6 +36,7 @@
   flex-direction: column;
   align-items: center;
   color: #daa520;
+  font-size: 2.5vw;
 }
 
 .welcome-header {
@@ -48,11 +45,12 @@
   box-shadow: 0px 0px 10px 5px #daa520;
   padding: 10px;
   border-radius: 5px;
+  margin: 0px;
 }
 
 .error-msg {
   display: flex;
   justify-content: center;
   width: 100%;
-  background: url(/Users/delilah/turing/3module/projects/fantasy-fellowship/src/assets/banner-scroll.png);
+  font-size: 2vw;
 }
