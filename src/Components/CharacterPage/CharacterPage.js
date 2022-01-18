@@ -1,41 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import {useParams} from 'react-router-dom';
 import './CharacterPage.css';
 
-const CharacterPage = ({player, image, addPlayer}) => {
+const CharacterPage = ({player, addPlayer, characters}) => {
 
-  CharacterPage.propTypes = {
-    player: PropTypes.object,
-    image: PropTypes.string
-  }
+  const character = useParams().name;
+  const selectedPlayer = characters && characters.find(person => person[0].name.includes(character))
 
-  const character = player[0];
-  const firstName = character.name.split(' ')[0]
+  const firstName = selectedPlayer && selectedPlayer[0].name.split(' ')[0]
 
-  useEffect(() => {
-    refresh();
-  })
+  const characterInfo = selectedPlayer &&
+    <div className='character'>
+    <h2 className="character-header">{character}</h2> 
+    <img src={selectedPlayer.image} alt={character.name} className="character-img"></img>
+      <p className="character-text">{character.race}</p>
+      <p className="character-text">Birth {character.birth ? character.birth : '(unknown)'}</p>
+    <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
+    </div> 
 
-  const refresh = () => {
-
-  }
-
-  //  !character.name ? fetchData() 
-  // characters in local storage?
 
   return (
     <>
-    <div className='character'>
-      <h2 className="character-header">{character.name}</h2> 
-      <img src={image} alt={character.name} className="character-img"></img>
-        <p className="character-text">{character.race}</p>
-        <p className="character-text">Birth {character.birth ? character.birth : '(unknown)'}</p>
-      <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
-    </div>
+      {characterInfo}
     </>
   )
 } 
 
 export default CharacterPage;
+
+CharacterPage.propTypes = {
+  player: PropTypes.string,
+  image: PropTypes.string
+}
 
 

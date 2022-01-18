@@ -5,7 +5,7 @@ import './Fellowship.css';
 const Fellowship = ({team, findPlayer, removePlayer}) => {
 
   Fellowship.propTypes = {
-    team: PropTypes.arrayOf(PropTypes.object)
+    team: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 
   let teamMembers;
@@ -13,8 +13,9 @@ const Fellowship = ({team, findPlayer, removePlayer}) => {
   team.length ? 
 
   teamMembers = team.map(player => {
+    
     const firstName = player[0].name.split(' ')[0];
-    // let { name } = player[0];
+   
     return (
       <div className="player-card">
         <img src={player.image} alt={player.name} className='grid-img' id={player.id} onClick={() => findPlayer(player.name)}></img>

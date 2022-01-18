@@ -42,15 +42,17 @@ class App extends Component  {
       this.setState({characters: filteredCharacters})
       this.createPlayers();
     } catch(err) { 
-      console.log(err)
+      return (
+        <ErrorPage />
+      )
     }
   }
   
   createPlayers = () => {
     this.setState({ characters: this.state.characters.map(character => {
       let player = character;
-      player.stats = { intelligence: 0, hitPoints: 0, survivalSkills: 0 }
-      player.image = this.getImage(character[0].name)
+      player.stats = { intelligence: 0, hitPoints: 0, survivalSkills: 0 };
+      player.image = this.getImage(character[0].name);
       return player;
     }) })
   }
@@ -68,7 +70,8 @@ class App extends Component  {
   }
 
   findPlayer = (name) => {
-    const foundPlayer = this.state.characters.find(character => character[0].name === name);
+    console.log(name)
+    const foundPlayer = this.state.characters.find(character => console.log(character[0].name.includes(name)));
     this.setState({selectedPlayer: foundPlayer});
   }
 
@@ -86,13 +89,13 @@ class App extends Component  {
       <div className="App">
         <Header />
         <Routes>
+          <Route path="*" element={<ErrorPage/>}></Route>
           <Route path="/" element={
-            <Grid characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} removePlayer={this.removePlayer} counter={this.state.playerCount} msg={this.state.msg}></Grid>
+            <Grid key={Date.now()} characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} msg={this.state.msg}></Grid>
             }
           />
-          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} image={this.state.selectedPlayer.image} addPlayer={this.addPlayer} />}></Route>
-          <Route path="/fellowship" element={<Fellowship team={this.state.team} findPlayer={this.findPlayer} removePlayer={this.removePlayer} />}></Route>
-          <Route path="*" element={<ErrorPage />}></Route>
+          <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer} findPlayer={this.findPlayer} characters={this.state.characters}/>}></Route>
+          <Route path="/fellowship" element={<Fellowship key={Date.now()} team={this.state.team} findPlayer={this.findPlayer} removePlayer={this.removePlayer} />}></Route>
         </Routes>
         <footer className="footer">
             Created by Delilah Rose 🧝‍♀️
@@ -103,12 +106,12 @@ class App extends Component  {
 }
 
 App.propTypes = {
-  characters: PropTypes.arrayOf(PropTypes.object).isRequired,
-  team: PropTypes.arrayOf(PropTypes.object).isRequired,
-  selectedPlayer: PropTypes.object.isRequired,
-  errorMessage: PropTypes.string.isRequired,
-  playerCount: PropTypes.number.isRequired,
-  msg: PropTypes.string.isRequired
+  characters: PropTypes.arrayOf(PropTypes.object),
+  team: PropTypes.arrayOf(PropTypes.object),
+  selectedPlayer: PropTypes.object,
+  errorMessage: PropTypes.string,
+  playerCount: PropTypes.number,
+  msg: PropTypes.string
 }
 
 
