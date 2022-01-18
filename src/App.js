@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Grid from './Components/Grid/Grid.js';
 import CharacterPage from './Components/CharacterPage/CharacterPage';
 import Header from './Components/Header/Header';
@@ -96,6 +97,15 @@ class App extends Component  {
       </div>
     )
   }
+}
+
+App.propTypes = {
+  characters: PropTypes.arrayOf(PropTypes.object),
+  team: PropTypes.arrayOf(PropTypes.object),
+  selectedPlayer: PropTypes.object,
+  errorMessage: PropTypes.string,
+  playerCount: PropTypes.number,
+  msg: PropTypes.string
 }
 
 
