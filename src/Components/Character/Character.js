@@ -5,7 +5,7 @@ import './Character.css';
 const Character = ({player, image, findPlayer}) => {
 
   Character.propTypes = {
-    player: PropTypes.object,
+    player: PropTypes.array,
     image: PropTypes.string
   }
 

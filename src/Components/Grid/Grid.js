@@ -7,8 +7,8 @@ import './Grid.css';
 const Grid = ({characters, findPlayer, addPlayer, msg}) => {
 
   Grid.propTypes = {
-    characters: PropTypes.arrayOf(PropTypes.object),
-    msg: PropTypes.string
+    characters: PropTypes.arrayOf(PropTypes.array).isRequired,
+    msg: PropTypes.string.isRequired
   }
 
 
@@ -19,8 +19,8 @@ const Grid = ({characters, findPlayer, addPlayer, msg}) => {
     const image = character.image;
 
     return (
-      <div className="player-container" key={player.id}>
-        <Link to={`/${player.name.split(' ')[0].toLowerCase()}`} style={{textDecoration: 'none'}}>
+      <div className="player-container">
+        <Link to={`/${player.name.split(' ')[0]}`} style={{textDecoration: 'none'}}>
           <Character key={player.id} player={character} stats={character[1]} image={image} findPlayer={findPlayer} addPlayer={addPlayer}></Character>
         </Link>
         <button className="add-player-btn" id={player.id} onClick={() => addPlayer(character)}>Add {firstName} to Fellowship</button>
@@ -35,7 +35,7 @@ const Grid = ({characters, findPlayer, addPlayer, msg}) => {
         <h2 className="welcome-header">Welcome to Fantasy Fellowship.</h2>
         <p className="welcome-p">Please select your players.</p>
       </section>
-      <section className="error-msg">{msg}</section>
+      <section key={Date.now()} className="error-msg">{msg}</section>
       <div className="grid">
         {players}
       </div>

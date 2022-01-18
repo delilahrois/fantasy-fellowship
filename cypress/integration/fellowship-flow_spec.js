@@ -35,7 +35,7 @@ describe('Fellowship user flow', () => {
 
   beforeEach(() => {
 
-    cy.intercept('GET', 'https://the-one-api.dev/v2/character', {fixture: '../fixtures/players.json' })
+    // cy.intercept('GET', 'https://the-one-api.dev/v2/character', {fixture: '../fixtures/players.json' })
 
 
     // cy.intercept('GET', 'https://the-one-api.dev/v2/character', {
@@ -92,7 +92,7 @@ describe('Fellowship user flow', () => {
     cy.get('section[class="error-msg"]').contains('Your Fellowship is unable to accept the same player twice! Try another.')
     cy.get('p[class="header-link"]').click()
     cy.get('div[class="team-container"]').should.exist
-    cy.get('img[class="grid-img"]').should.exist
+    cy.get('img[class="grid-img"][id=""]').should.exist
     // check that there is not a player that matches on the page.
 
 
