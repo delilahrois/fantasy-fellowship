@@ -1,7 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Character.css';
 
 const Character = ({player, image, findPlayer}) => {
+
+  Character.propTypes = {
+    player: PropTypes.object,
+    image: PropTypes.string
+  }
 
   const character = player[0];
 
