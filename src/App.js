@@ -53,7 +53,7 @@ class App extends Component  {
   }
 
   addPlayer = (player) => {
-    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player], counter: this.state.playerCount--, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) : this.setState({msg: 'Your Fellowship is unable to accept them right now. Try another player.'})
+    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player], counter: this.state.playerCount--, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) : this.setState({msg: 'Your Fellowship is unable to accept the same player twice! Try another.'})
     if(this.state.playerCount < 1) {
       this.setState({msg: 'Your Fellowship is full!'})
     }
