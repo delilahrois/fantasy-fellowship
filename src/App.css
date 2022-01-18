@@ -9,7 +9,6 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: white;
 }
 
 .footer {
@@ -18,5 +17,6 @@ body {
   margin: 20px;
   font-size: 1.4vw;
   height: 100%;
+  color: #daa520;
 }
 

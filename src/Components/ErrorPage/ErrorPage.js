@@ -8,7 +8,7 @@ const ErrorPage = () => {
     <div className="error-msg">
       <h2>Sorry!</h2>
       <p>This page does not exist.</p>
-      <Link to="/" style={{textDecoration: 'none', color: 'white'}}>Let's head on home.</Link>
+      <Link to="/" class="link">Let's head on home.</Link>
     </div>
   )
 }

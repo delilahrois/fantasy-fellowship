@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {useParams, useLocation} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import './CharacterPage.css';
 
