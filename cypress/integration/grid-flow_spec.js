@@ -39,6 +39,12 @@ describe('User flow basic interactions', () => {
 
   })
 
+  it('should display the grid of characters', () => {
+
+    cy.get('div[class="grid"]')
+
+  })
+
   it('should render character cards with their image', () => {
 
     cy.get('img[class="grid-img"]')

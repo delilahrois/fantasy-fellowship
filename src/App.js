@@ -53,7 +53,7 @@ class App extends Component  {
   }
 
   addPlayer = (player) => {
-    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player], counter: this.state.playerCount--, msg: `You have ${this.state.playerCount} more slots in your Fellowship.` }) : this.setState({msg: 'Your Fellowship is unable to accept them right now. Try another player.'})
+    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player], counter: this.state.playerCount--, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) : this.setState({msg: 'Your Fellowship is unable to accept them right now. Try another player.'})
     if(this.state.playerCount < 1) {
       this.setState({msg: 'Your Fellowship is full!'})
     }
@@ -61,7 +61,7 @@ class App extends Component  {
 
   removePlayer = (player) => {
     const filteredPlayers = this.state.team.filter(character => character !== player)
-    this.setState({ team: [ ...filteredPlayers ] }) 
+    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount++, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) 
   }
 
   findPlayer = (name) => {
