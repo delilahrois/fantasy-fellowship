@@ -1,4 +1,22 @@
 .character {
-  border: 2px solid blue;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50%;
+  margin-bottom: 10%;
+}
+
+.character-img {
+  width: 20%;
+}
+
+.character-header {
+  font-size: 4vw;
+  margin: 5px;
+}
+
+.character-text {
+  font-size: 2vw;
+  margin: 10px;
 }

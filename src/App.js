@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import Grid from './Components/Grid/Grid.js';
 import CharacterPage from './Components/CharacterPage/CharacterPage';
 import Header from './Components/Header/Header';
 import Fellowship from './Components/Fellowship/Fellowship';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 import imageLinks from './assets/imageLinks';
 import './App.css';
 
@@ -16,7 +18,7 @@ class App extends Component  {
       selectedPlayer: '',
       errorMessage: '',
       playerCount: 9,
-      msg: 'You have 9 more slots in your Fellowship.'
+      msg: 'You have 9 slots in your Fellowship.'
     }
   }
 
@@ -32,6 +34,7 @@ class App extends Component  {
         }
       })
       const responseJson = await response.json();
+      console.log(responseJson)
       const playerNames = ['Frodo Baggins', 'Samwise Gamgee', 'Peregrin Took', 'Meriadoc Brandybuck', 'Gandalf', 'Aragorn II Elessar', 'Legolas', 'Gimli', 'Bilbo Baggins', 'Boromir', 'Galadriel', 'Arwen', 'Gollum', 'Elrond', 'Éowyn', 'Radagast', 'Éomer', 'Celeborn', 'Faramir', 'Treebeard', 'Denethor II', 'Beorn', 'Bard', 'Théoden', 'Thorin II Oakenshield', 'Thranduil', 'Haldir (Lorien)'];
       const filteredCharacters = playerNames.map(player => 
         responseJson.docs.filter(character => character.name === player)
@@ -61,7 +64,7 @@ class App extends Component  {
 
   removePlayer = (player) => {
     const filteredPlayers = this.state.team.filter(character => character !== player)
-    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount++, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) 
+    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount + 1, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) 
   }
 
   findPlayer = (name) => {
@@ -89,6 +92,7 @@ class App extends Component  {
           />
           <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} image={this.state.selectedPlayer.image} addPlayer={this.addPlayer} />}></Route>
           <Route path="/fellowship" element={<Fellowship team={this.state.team} findPlayer={this.findPlayer} removePlayer={this.removePlayer} />}></Route>
+          <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
         <footer className="footer">
             Created by Delilah Rose 🧝‍♀️
@@ -96,6 +100,15 @@ class App extends Component  {
       </div>
     )
   }
+}
+
+App.propTypes = {
+  characters: PropTypes.arrayOf(PropTypes.object).isRequired,
+  team: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectedPlayer: PropTypes.object.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  playerCount: PropTypes.number.isRequired,
+  msg: PropTypes.string.isRequired
 }
 
 

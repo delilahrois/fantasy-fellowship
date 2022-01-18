@@ -13,12 +13,12 @@ const Fellowship = ({team, findPlayer, removePlayer}) => {
   team.length ? 
 
   teamMembers = team.map(player => {
-    let { name } = player[0];
+    const firstName = player[0].name.split(' ')[0];
+    // let { name } = player[0];
     return (
       <div className="player-card">
         <img src={player.image} alt={player.name} className='grid-img' id={player.id} onClick={() => findPlayer(player.name)}></img>
-        <p>{name}</p>
-        <button onClick={() => removePlayer(player)}>Remove player</button>
+        <button className="remove-btn" onClick={() => removePlayer(player)}>Remove {firstName}</button>
       </div>
     )
   })

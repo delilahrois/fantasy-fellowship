@@ -11,7 +11,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid pink;
   height: 200px;
   width: 200px;
   margin: 20px;
@@ -27,6 +26,7 @@
 
 .grid-img {
   height: 100%;
+  width: 100%;
 }
 
 button {
@@ -37,4 +37,10 @@ button {
   color: white;
   font-family: 'Bilbo', cursive;
   font-size: 2vw;
+  cursor: pointer;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
 }

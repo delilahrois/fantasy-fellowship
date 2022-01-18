@@ -24,13 +24,15 @@ const CharacterPage = ({player, image, addPlayer}) => {
   // characters in local storage?
 
   return (
+    <>
     <div className='character'>
-      <h2>{character.name}</h2> 
-      <img src={image} alt={character.name}></img>
-        <p>{character.race}</p>
-        <p>Birth {character.birth ? character.birth : '(unknown)'}</p>
+      <h2 className="character-header">{character.name}</h2> 
+      <img src={image} alt={character.name} className="character-img"></img>
+        <p className="character-text">{character.race}</p>
+        <p className="character-text">Birth {character.birth ? character.birth : '(unknown)'}</p>
       <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
     </div>
+    </>
   )
 } 
 
