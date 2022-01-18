@@ -29,12 +29,36 @@ const data = {
   ]
 }
 
+
+
 describe('Fellowship user flow', () => {
 
   beforeEach(() => {
 
-    // cy.intercept('GET', 'https://the-one-api.dev/v2/character', {fixture: 'data'})
-    // cy.wait(1000)
+    cy.intercept('GET', 'https://the-one-api.dev/v2/character', {fixture: '../fixtures/players.json' })
+
+
+    // cy.intercept('GET', 'https://the-one-api.dev/v2/character', {
+    //   statusCode: 200,
+    //   body: {
+    //     "docs": [
+    //       {
+    //         "birth": "22 September ,TA 2968",
+    //         "death": "Unknown (Last sighting ,September 29 ,3021,) (,SR 1421,)",
+    //         "gender": "Male",
+    //         "hair": "Brown",
+    //         "height": "1.06m (3'6\")",
+    //         "name": "Frodo Baggins",
+    //         "race": "Hobbit",
+    //         "realm": "",
+    //         "spouse": "",
+    //         "wikiUrl": "http://lotr.wikia.com//wiki/Frodo_Baggins",
+    //         "_id": "5cd99d4bde30eff6ebccfc15"
+    //       }
+    //     ]
+    //   }
+    // })
+    // // cy.wait(1000)
     cy.visit('http://localhost:3000')
 
     // cy.fixture('./players.json')
@@ -43,8 +67,8 @@ describe('Fellowship user flow', () => {
     //       statusCode: 200,
     //       body: characters
     //     })
-        // cy.visit('http://localhost:3000/')
-      // })
+    //     cy.visit('http://localhost:3000/')
+    //   })
   })
 
   it('should be able to add characters to Fellowship from home screen', () => {
@@ -87,7 +111,6 @@ describe('Fellowship user flow', () => {
   it('should allow user to navigate back to the home page', () => {
 
     cy.get('h1[class="header-title"]').click()
-
 
   })
 

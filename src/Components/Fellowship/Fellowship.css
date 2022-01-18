@@ -37,4 +37,10 @@ button {
   color: white;
   font-family: 'Bilbo', cursive;
   font-size: 2vw;
+  cursor: pointer;
+}
+
+button:hover {
+  color: black;
+  background-color: white;
 }

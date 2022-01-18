@@ -5,6 +5,7 @@ import Grid from './Components/Grid/Grid.js';
 import CharacterPage from './Components/CharacterPage/CharacterPage';
 import Header from './Components/Header/Header';
 import Fellowship from './Components/Fellowship/Fellowship';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
 import imageLinks from './assets/imageLinks';
 import './App.css';
 
@@ -33,6 +34,7 @@ class App extends Component  {
         }
       })
       const responseJson = await response.json();
+      console.log(responseJson)
       const playerNames = ['Frodo Baggins', 'Samwise Gamgee', 'Peregrin Took', 'Meriadoc Brandybuck', 'Gandalf', 'Aragorn II Elessar', 'Legolas', 'Gimli', 'Bilbo Baggins', 'Boromir', 'Galadriel', 'Arwen', 'Gollum', 'Elrond', 'Éowyn', 'Radagast', 'Éomer', 'Celeborn', 'Faramir', 'Treebeard', 'Denethor II', 'Beorn', 'Bard', 'Théoden', 'Thorin II Oakenshield', 'Thranduil', 'Haldir (Lorien)'];
       const filteredCharacters = playerNames.map(player => 
         responseJson.docs.filter(character => character.name === player)
@@ -90,6 +92,7 @@ class App extends Component  {
           />
           <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} image={this.state.selectedPlayer.image} addPlayer={this.addPlayer} />}></Route>
           <Route path="/fellowship" element={<Fellowship team={this.state.team} findPlayer={this.findPlayer} removePlayer={this.removePlayer} />}></Route>
+          <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
         <footer className="footer">
             Created by Delilah Rose 🧝‍♀️
@@ -100,12 +103,12 @@ class App extends Component  {
 }
 
 App.propTypes = {
-  characters: PropTypes.arrayOf(PropTypes.object),
-  team: PropTypes.arrayOf(PropTypes.object),
-  selectedPlayer: PropTypes.object,
-  errorMessage: PropTypes.string,
-  playerCount: PropTypes.number,
-  msg: PropTypes.string
+  characters: PropTypes.arrayOf(PropTypes.object).isRequired,
+  team: PropTypes.arrayOf(PropTypes.object).isRequired,
+  selectedPlayer: PropTypes.object.isRequired,
+  errorMessage: PropTypes.string.isRequired,
+  playerCount: PropTypes.number.isRequired,
+  msg: PropTypes.string.isRequired
 }
 
 
