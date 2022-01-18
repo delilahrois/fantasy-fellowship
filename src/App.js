@@ -17,7 +17,7 @@ class App extends Component  {
       selectedPlayer: '',
       errorMessage: '',
       playerCount: 9,
-      msg: 'You have 9 more slots in your Fellowship.'
+      msg: 'You have 9 slots in your Fellowship.'
     }
   }
 
@@ -62,7 +62,7 @@ class App extends Component  {
 
   removePlayer = (player) => {
     const filteredPlayers = this.state.team.filter(character => character !== player)
-    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount++, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) 
+    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount + 1, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) 
   }
 
   findPlayer = (name) => {

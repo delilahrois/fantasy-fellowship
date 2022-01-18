@@ -17,9 +17,6 @@ body {
   justify-content: center;
   margin: 20px;
   font-size: 1.4vw;
-  border: 2px solid red;
-  height: 10%;
-  background-attachment: fixed;
-
+  height: 100%;
 }
 

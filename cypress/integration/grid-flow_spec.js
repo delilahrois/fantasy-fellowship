@@ -39,6 +39,12 @@ describe('User flow basic interactions', () => {
 
   })
 
+  it('should show a count of the number of players left to select', () => {
+
+    cy.get('section[class="error-msg"]').contains('You have 9 slots in your Fellowship.')
+
+  })
+
   it('should display the grid of characters', () => {
 
     cy.get('div[class="grid"]')
