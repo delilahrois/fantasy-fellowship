@@ -7,16 +7,17 @@ import './CharacterPage.css';
 const CharacterPage = ({player, addPlayer, characters}) => {
 
   const character = useParams().name;
-  const selectedPlayer = characters && characters.find(person => person[0].name.includes(character))
+  const selectedPlayer = characters && characters.find(person => person.name.includes(character))
 
-  const firstName = selectedPlayer && selectedPlayer[0].name.split(' ')[0]
+  const firstName = selectedPlayer && selectedPlayer.name.split(' ')[0]
+  console.log(firstName)
 
   const characterInfo = selectedPlayer &&
     <div className='character'>
     <h2 className="character-header">{character}</h2> 
-    <img src={selectedPlayer.image} alt={character.name} className="character-img"></img>
+    <img src={selectedPlayer.image} alt={selectedPlayer.name} className="character-img"></img>
       <p className="character-text">{character.race}</p>
-      <p className="character-text">Birth {character.birth ? character.birth : '(unknown)'}</p>
+      <p className="character-text">Birth {selectedPlayer.birth ? selectedPlayer.birth : '(unknown)'}</p>
     <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
     </div> 
 

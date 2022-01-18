@@ -14,10 +14,10 @@ const Grid = ({characters, findPlayer, addPlayer, msg}) => {
 
   const players = characters.map(character => {
 
-    console.log(character)
 
-    const player = character[0];
+    const player = character;
     const firstName = player.name.split(' ')[0];
+    console.log(firstName)
     const image = character.image;
 
     return (

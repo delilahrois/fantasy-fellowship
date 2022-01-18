@@ -36,12 +36,8 @@ class App extends Component  {
       const responseJson = await response.json();
       console.log(responseJson)
       const playerNames = ['Frodo Baggins', 'Samwise Gamgee', 'Peregrin Took', 'Meriadoc Brandybuck', 'Gandalf', 'Aragorn II Elessar', 'Legolas', 'Gimli', 'Bilbo Baggins', 'Boromir', 'Galadriel', 'Arwen', 'Gollum', 'Elrond', 'Éowyn', 'Radagast', 'Éomer', 'Celeborn', 'Faramir', 'Treebeard', 'Denethor II', 'Beorn', 'Bard', 'Théoden', 'Thorin II Oakenshield', 'Thranduil', 'Haldir (Lorien)'];
-      // const filteredCharacters = playerNames.map(player => 
-      //   responseJson.docs.filter(character => character.name === player)
-      // )
       const filteredCharacters = responseJson.docs.filter((character) => playerNames.includes(character.name));
-      this.setState({characters: filteredCharacters})
-      this.createPlayers();
+      this.setState({characters: filteredCharacters}, this.createPlayers);
     } catch(err) { 
       return (
         <ErrorPage />
@@ -53,7 +49,7 @@ class App extends Component  {
     this.setState({ characters: this.state.characters.map(character => {
       let player = character;
       player.stats = { intelligence: 0, hitPoints: 0, survivalSkills: 0 };
-      player.image = this.getImage(character[0].name);
+      player.image = this.getImage(character.name);
       return player;
     }) })
   }
@@ -72,7 +68,7 @@ class App extends Component  {
 
   findPlayer = (name) => {
     console.log(name)
-    const foundPlayer = this.state.characters.find(character => console.log(character[0].name.includes(name)));
+    const foundPlayer = this.state.characters.find(character => character.name.includes(name));
     this.setState({selectedPlayer: foundPlayer});
   }
 

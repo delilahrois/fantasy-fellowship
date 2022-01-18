@@ -2,15 +2,10 @@ describe('User flow basic interactions', () => {
 
   beforeEach(() => {
 
-      // cy.fixture('./players.json')
-      //   .then((characters) => {
-      //     cy.intercept('GET', 'https://the-one-api.dev/v2/character', {
-      //       statusCode: 200,
-      //       body: characters
-      //     })
-          cy.visit('http://localhost:3000/')
-        // })
-    })
+    cy.intercept('GET', 'https://the-one-api.dev/v2/character', {fixture: '../fixtures/players.json' })
+    cy.visit('http://localhost:3000')
+
+  })
 
 
   it('should visit the home page', () => {
