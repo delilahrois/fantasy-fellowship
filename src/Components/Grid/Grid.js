@@ -3,7 +3,7 @@ import Character from '../Character/Character';
 import {Link} from 'react-router-dom';
 import './Grid.css';
 
-const Grid = ({characters, findPlayer, addPlayer}) => {
+const Grid = ({characters, findPlayer, addPlayer, msg}) => {
 
 
   const players = characters.map(character => {
@@ -29,6 +29,7 @@ const Grid = ({characters, findPlayer, addPlayer}) => {
         <h2 className="welcome-header">Welcome to Fantasy Fellowship.</h2>
         <p className="welcome-p">Please select your players.</p>
       </section>
+      <section className="error-msg">{msg}</section>
       <div className="grid">
         {players}
       </div>

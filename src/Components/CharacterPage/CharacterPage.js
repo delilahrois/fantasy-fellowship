@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CharacterPage.css';
 
 const CharacterPage = ({player, image, addPlayer}) => {
 
   const character = player[0];
   const firstName = character.name.split(' ')[0]
+
+
+ 
 
   //  !character.name ? fetchData() 
   // characters in local storage?
@@ -18,7 +21,7 @@ const CharacterPage = ({player, image, addPlayer}) => {
       <button onClick={() => addPlayer(player)}>Add {firstName} to your Fellowship</button>
     </div>
   )
-}
+} 
 
 export default CharacterPage;
 
