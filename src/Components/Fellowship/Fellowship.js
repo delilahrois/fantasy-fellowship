@@ -17,7 +17,7 @@ const Fellowship = ({team, findPlayer, removePlayer}) => {
       </div>
     )
   })
-  : teamMembers = <p>You haven't added anyone to your Fellowship yet.</p>
+  : teamMembers = <p className="no-team-msg">You haven't added anyone to your Fellowship yet.</p>
 
   return (
     <>

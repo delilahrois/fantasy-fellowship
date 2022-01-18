@@ -13,7 +13,10 @@ class App extends Component  {
     this.state = {
       characters: [],
       team: [],
-      selectedPlayer: ''
+      selectedPlayer: '',
+      errorMessage: '',
+      playerCount: 9,
+      msg: 'You have 9 more slots in your Fellowship.'
     }
   }
 
@@ -29,15 +32,13 @@ class App extends Component  {
         }
       })
       const responseJson = await response.json();
-      // console.log(responseJson)
       const playerNames = ['Frodo Baggins', 'Samwise Gamgee', 'Peregrin Took', 'Meriadoc Brandybuck', 'Gandalf', 'Aragorn II Elessar', 'Legolas', 'Gimli', 'Bilbo Baggins', 'Boromir', 'Galadriel', 'Arwen', 'Gollum', 'Elrond', 'Éowyn', 'Radagast', 'Éomer', 'Celeborn', 'Faramir', 'Treebeard', 'Denethor II', 'Beorn', 'Bard', 'Théoden', 'Thorin II Oakenshield', 'Thranduil', 'Haldir (Lorien)'];
       const filteredCharacters = playerNames.map(player => 
         responseJson.docs.filter(character => character.name === player)
       )
       this.setState({characters: filteredCharacters})
       this.createPlayers();
-      // console.log(this.state.characters)
-    } catch(err) {
+    } catch(err) { 
       console.log(err)
     }
   }
@@ -52,12 +53,15 @@ class App extends Component  {
   }
 
   addPlayer = (player) => {
-    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player] }) : console.log('this player has already been added')
+    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player], counter: this.state.playerCount--, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) : this.setState({msg: 'Your Fellowship is unable to accept them right now. Try another player.'})
+    if(this.state.playerCount < 1) {
+      this.setState({msg: 'Your Fellowship is full!'})
+    }
   }
 
   removePlayer = (player) => {
     const filteredPlayers = this.state.team.filter(character => character !== player)
-    this.setState({ team: [ ...filteredPlayers ] }) && console.log('player has been removed')
+    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount++, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) 
   }
 
   findPlayer = (name) => {
@@ -70,7 +74,6 @@ class App extends Component  {
     return url;
   }
 
-
   componentDidMount = () => {
     this.fetchData();
   }
@@ -81,7 +84,7 @@ class App extends Component  {
         <Header />
         <Routes>
           <Route path="/" element={
-            <Grid characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} removePlayer={this.removePlayer}></Grid>
+            <Grid characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} removePlayer={this.removePlayer} counter={this.state.playerCount} msg={this.state.msg}></Grid>
             }
           />
           <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} image={this.state.selectedPlayer.image} addPlayer={this.addPlayer} />}></Route>

@@ -1,7 +1,6 @@
 body {
   font-family: 'Bilbo', cursive;
   font-weight: bold;
-  font-size: large;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -11,13 +10,16 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: white;
-  /* overflow: none; */
 }
 
 .footer {
   display: flex;
   justify-content: center;
   margin: 20px;
-  font-size: larger;
+  font-size: 1.4vw;
+  border: 2px solid red;
+  height: 10%;
+  background-attachment: fixed;
+
 }
 

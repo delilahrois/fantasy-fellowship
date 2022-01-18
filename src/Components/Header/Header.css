@@ -1,24 +1,25 @@
 .header {
-  border: 2px solid orange;
-  /* height: 20vh; */
   display: flex;
   justify-content: flex-start;
   padding: 2%;
-  background-image: url(https://i.pinimg.com/originals/35/bd/a4/35bda4d45adedb6e097dc3038f937117.jpg);
+  /* background-image: url(https://i.pinimg.com/originals/35/bd/a4/35bda4d45adedb6e097dc3038f937117.jpg); */
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  /* background-position:  */
 }
 
 .title-container {
-  border: 2px solid yellow;
+  display: flex;
+  justify-content: center;
   text-decoration: none;
-  color: white;
   width: 30%;
+  font-size: 3vw;
 }
 
 .nav-container {
-  border: 2px solid pink;
   width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vw;
 }
