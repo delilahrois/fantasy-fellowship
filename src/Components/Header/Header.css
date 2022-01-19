@@ -24,7 +24,13 @@
   font-size: 2vw;
 }
 
-.link {
+.header-title {
   text-decoration: none;
+  color: #daa520;
+}
+
+.header-link {
+  text-decoration: none;
+  padding-left: 60px;
   color: #daa520;
 }
