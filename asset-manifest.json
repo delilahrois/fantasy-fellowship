@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/delilahrois/fantasy-fellowship/static/css/main.5dc68118.css",
-    "main.js": "/delilahrois/fantasy-fellowship/static/js/main.9c53d457.js",
-    "static/js/787.fd6e1a56.chunk.js": "/delilahrois/fantasy-fellowship/static/js/787.fd6e1a56.chunk.js",
-    "index.html": "/delilahrois/fantasy-fellowship/index.html",
-    "main.5dc68118.css.map": "/delilahrois/fantasy-fellowship/static/css/main.5dc68118.css.map",
-    "main.9c53d457.js.map": "/delilahrois/fantasy-fellowship/static/js/main.9c53d457.js.map",
-    "787.fd6e1a56.chunk.js.map": "/delilahrois/fantasy-fellowship/static/js/787.fd6e1a56.chunk.js.map"
+    "main.css": "/fantasy-fellowship/static/css/main.5dc68118.css",
+    "main.js": "/fantasy-fellowship/static/js/main.568cd573.js",
+    "static/js/787.fd6e1a56.chunk.js": "/fantasy-fellowship/static/js/787.fd6e1a56.chunk.js",
+    "index.html": "/fantasy-fellowship/index.html",
+    "main.5dc68118.css.map": "/fantasy-fellowship/static/css/main.5dc68118.css.map",
+    "main.568cd573.js.map": "/fantasy-fellowship/static/js/main.568cd573.js.map",
+    "787.fd6e1a56.chunk.js.map": "/fantasy-fellowship/static/js/787.fd6e1a56.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5dc68118.css",
-    "static/js/main.9c53d457.js"
+    "static/js/main.568cd573.js"
   ]
 }
