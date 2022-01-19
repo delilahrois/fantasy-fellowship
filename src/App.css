@@ -5,11 +5,11 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
+  position: relative;
   background-image: url(https://images4.alphacoders.com/843/thumb-1920-84316.jpg);
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  color: white;
 }
 
 .footer {
@@ -18,5 +18,6 @@ body {
   margin: 20px;
   font-size: 1.4vw;
   height: 100%;
+  color: #daa520;
 }
 

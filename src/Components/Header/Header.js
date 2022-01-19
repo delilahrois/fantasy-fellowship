@@ -7,10 +7,10 @@ const Header = () => {
   return (
     <section className="header">
       <div className="title-container">
-        <h1 className="header-title"><Link to="/" style={{textDecoration: 'none', color: 'white'}}>Fantasy Fellowship</Link></h1>
+        <h1 className="header-title"><Link to="/" class="link">Fantasy Fellowship</Link></h1>
       </div>
       <div className="nav-container">
-        <p className="header-link"><Link to="/fellowship" style={{textDecoration: 'none', color: 'white'}}>Your Fellowship</Link></p>
+        <p className="header-link"><Link to="/fellowship" class="link">Your Fellowship</Link></p>
       </div>
     </section>
   )

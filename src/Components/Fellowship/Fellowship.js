@@ -4,9 +4,6 @@ import './Fellowship.css';
 
 const Fellowship = ({team, findPlayer, removePlayer}) => {
 
-  Fellowship.propTypes = {
-    team: PropTypes.arrayOf(PropTypes.object).isRequired
-  }
 
   let teamMembers;
 
@@ -14,11 +11,11 @@ const Fellowship = ({team, findPlayer, removePlayer}) => {
 
   teamMembers = team.map(player => {
     
-    const firstName = player[0].name.split(' ')[0];
+    const firstName = player.name.split(' ')[0];
    
     return (
       <div className="player-card">
-        <img src={player.image} alt={player.name} className='grid-img' id={player.id} onClick={() => findPlayer(player.name)}></img>
+        <img src={player.image} alt={player.name} className='grid-img' id={player._id} onClick={() => findPlayer(player.name)}></img>
         <button className="remove-btn" onClick={() => removePlayer(player)}>Remove {firstName}</button>
       </div>
     )
@@ -38,3 +35,7 @@ const Fellowship = ({team, findPlayer, removePlayer}) => {
 }
 
 export default Fellowship;
+
+Fellowship.propTypes = {
+  team: PropTypes.arrayOf(PropTypes.object).isRequired
+}

@@ -1,3 +1,11 @@
 .error-msg {
-  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #daa520;
+}
+
+.link {
+  color: #daa520;
 }
