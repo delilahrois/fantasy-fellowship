@@ -1,6 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import Character from '../Character/Character';
 import PropTypes from 'prop-types';
 import './Fellowship.css';
 
@@ -15,14 +13,11 @@ const Fellowship = ({team, findPlayer, removePlayer}) => {
   teamMembers = team.map(player => {
     
     const firstName = player.name.split(' ')[0];
-    const image = player.image;
-    const key = player._id;
+    const id = player._id
    
     return (
       <div className="player-card">
-        <Link to={`/${player.name.split(' ')[0]}`} style={{textDecoration: 'none'}}>
-          <Character key={key} player={player} stats={player[1]} image={image} findPlayer={findPlayer}></Character>
-        </Link>
+        <img src={player.image} alt={player.name} className='grid-img' id={id} onClick={() => findPlayer(player.name)}></img>
         <button className="remove-btn" onClick={() => removePlayer(player)}>Remove {firstName}</button>
       </div>
     )

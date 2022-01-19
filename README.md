@@ -1,9 +1,13 @@
 #  🧙🏼‍♂️  Fantasy Fellowship  🧝‍♀️
 
-A React application for Tolkien lovers. Created by [Delilah Rose.]()
+A React application for Tolkien lovers. Created by [Delilah Rose.](https://github.com/delilahrois)
 This deployed project can be accessed [here.]()
 
-<insert gif / images here>
+![Screen Shot 2022-01-18 at 7 17 11 PM](https://user-images.githubusercontent.com/74752738/150041179-f7d9fcb6-5c6e-4362-8c7b-98bdbe8d74d8.png)
+
+![Screen Shot 2022-01-18 at 7 18 51 PM](https://user-images.githubusercontent.com/74752738/150041230-7c94f26b-6c91-42db-a87d-a845d87f692b.png)
+
+![Screen Shot 2022-01-18 at 7 17 23 PM](https://user-images.githubusercontent.com/74752738/150041254-f0359fda-99f0-4f7e-ab86-f97ee448fc59.png)
 
 ## So, what is Fantasy Fellowship all about?
 
@@ -14,10 +18,16 @@ Future iterations include the addition of game logic to create a LOTR-themed fan
 ## Technologies Used
 
 - JavaScript
+- JSX
 - React v6
-- React Router, including PropTypes
+- React Router
 - Cypress
 - HTML / CSS
+- Git
+
+### Project Spec
+
+A link to the spec can be found [here.](https://frontend.turing.edu/projects/module-3/showcase.html)
 
 
 ### Future Extensions
