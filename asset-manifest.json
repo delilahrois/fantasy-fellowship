@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/delilahrois/fantasy-fellowship/static/css/main.5dc68118.css",
+    "main.js": "/delilahrois/fantasy-fellowship/static/js/main.bbcbd6cb.js",
+    "static/js/787.fd6e1a56.chunk.js": "/delilahrois/fantasy-fellowship/static/js/787.fd6e1a56.chunk.js",
+    "index.html": "/delilahrois/fantasy-fellowship/index.html",
+    "main.5dc68118.css.map": "/delilahrois/fantasy-fellowship/static/css/main.5dc68118.css.map",
+    "main.bbcbd6cb.js.map": "/delilahrois/fantasy-fellowship/static/js/main.bbcbd6cb.js.map",
+    "787.fd6e1a56.chunk.js.map": "/delilahrois/fantasy-fellowship/static/js/787.fd6e1a56.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5dc68118.css",
+    "static/js/main.bbcbd6cb.js"
+  ]
+}
