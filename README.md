@@ -25,6 +25,14 @@ Future iterations include the addition of game logic to create a LOTR-themed fan
 - HTML / CSS
 - Git
 
+## Setup
+
+This project can be run locally.
+
+1. Run `git clone git@github.com:delilahrois/fantasy-fellowship.git` 
+2. `cd` into the project directory and run `npm start`
+3. The project can then be viewed by visiting http://localhost:3000
+
 ### Project Spec
 
 A link to the spec can be found [here.](https://frontend.turing.edu/projects/module-3/showcase.html)
