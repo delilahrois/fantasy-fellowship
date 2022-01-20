@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './Header.css';
 
-const Header = () => {
+const Header = ({playerCount}) => {
 
   return (
     <section className="header">
@@ -11,6 +11,7 @@ const Header = () => {
       </div>
       <div className="nav-container">
         <p className="header-link"><Link to="/fellowship" style={{textDecoration: 'none', color: '#daa520'}}>Your Fellowship</Link></p>
+        <p className="counter">{playerCount}</p>
       </div>
     </section>
   )

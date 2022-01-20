@@ -18,7 +18,7 @@ class App extends Component  {
       selectedPlayer: '',
       errorMessage: '',
       playerCount: 9,
-      msg: 'You have 9 slots in your Fellowship.'
+      msg: ''
     }
   }
 
@@ -54,7 +54,14 @@ class App extends Component  {
   }
 
   addPlayer = (player) => {
-    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player], counter: this.state.playerCount--, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) : this.setState({msg: 'Your Fellowship is unable to accept the same player twice! Try another.'})
+    if(!this.state.team.includes(player) && this.state.team.length < 9) {
+      this.setState({team: [...this.state.team, player], counter: this.state.playerCount--})
+    }
+
+    if(this.state.team.includes(player)) {
+      this.setState({msg: 'Your Fellowship is unable to accept the same player twice.'})
+    }
+
     if(this.state.playerCount < 1) {
       this.setState({msg: 'Your Fellowship is full!'})
     }
@@ -82,7 +89,7 @@ class App extends Component  {
   render = () => {
     return (
       <div className="App">
-        <Header />
+        <Header playerCount={this.state.playerCount}/>
         <Routes>
           <Route path="*" element={<ErrorPage/>}></Route>
           <Route path="/" element={
@@ -93,7 +100,7 @@ class App extends Component  {
           <Route path="/fellowship" element={<Fellowship key={Date.now()} team={this.state.team} findPlayer={this.findPlayer} removePlayer={this.removePlayer} />}></Route>
         </Routes>
         <footer className="footer">
-            Created by Delilah Rose 🧝‍♀️
+            <p className="footer-text">Created by Delilah Rose 🧝‍♀️</p>
         </footer>
       </div>
     )

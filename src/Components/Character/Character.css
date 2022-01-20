@@ -1,3 +1,7 @@
 .grid-img {
   border-radius: 3px;
 }
+
+.grid-img:hover {
+  box-shadow: 0px 0px 40px 10px #daa520;
+}

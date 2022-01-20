@@ -1,6 +1,6 @@
 .add-player-btn {
   font-family: 'Bilbo', cursive;
-  font-size: 1.5vw;
+  font-size: 2vw;
   background-color: black;
   color: #daa520;
   font-weight: bold;
@@ -37,6 +37,7 @@
   align-items: center;
   color: #daa520;
   font-size: 2.5vw;
+  max-height: 150px;
 }
 
 .welcome-header {

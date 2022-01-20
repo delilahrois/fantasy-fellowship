@@ -5,11 +5,12 @@ body {
   padding: 0;
   width: 100%;
   height: 100%;
-  position: relative;
   background-image: url(https://images4.alphacoders.com/843/thumb-1920-84316.jpg);
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow: overlay;
+  color-scheme: dark;
 }
 
 .footer {
@@ -19,5 +20,12 @@ body {
   font-size: 1.4vw;
   height: 100%;
   color: #daa520;
+}
+
+.footer-text {
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 2px #daa520;
 }
 
