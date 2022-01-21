@@ -4,12 +4,15 @@
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
+  max-height: 125px;
+  box-shadow: 0px 0px 20px 5px #daa520;
+  margin-bottom: 3%;
+  background-color: black;
 }
 
 .title-container {
   display: flex;
   justify-content: center;
-  margin-left: 5%;
   text-decoration: none;
   width: 40%;
   font-size: 2vw;
@@ -20,7 +23,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-right: 15%;
+  margin-right: 10%;
   font-size: 2vw;
 }
 
@@ -29,8 +32,12 @@
   color: #daa520;
 }
 
-.header-link {
+.header-link, .counter {
   text-decoration: none;
   padding-left: 60px;
   color: #daa520;
+}
+
+.counter {
+  font-size: 4vw;
 }

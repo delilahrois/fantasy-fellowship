@@ -16,9 +16,8 @@ class App extends Component  {
       characters: [],
       team: [],
       selectedPlayer: '',
-      errorMessage: '',
       playerCount: 9,
-      msg: 'You have 9 slots in your Fellowship.'
+      msg: ''
     }
   }
 
@@ -54,15 +53,23 @@ class App extends Component  {
   }
 
   addPlayer = (player) => {
-    !this.state.team.includes(player) && this.state.team.length < 9 ? this.setState({ team: [ ...this.state.team, player], counter: this.state.playerCount--, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) : this.setState({msg: 'Your Fellowship is unable to accept the same player twice! Try another.'})
+
     if(this.state.playerCount < 1) {
       this.setState({msg: 'Your Fellowship is full!'})
+      setTimeout(() => {this.setState({msg: ''})}, 2000)
     }
+
+    if(!this.state.team.includes(player) && this.state.team.length < 9) {
+      this.setState({team: [...this.state.team, player], counter: this.state.playerCount--})
+    } else {
+      this.removePlayer(player)
+    }
+    
   }
 
   removePlayer = (player) => {
     const filteredPlayers = this.state.team.filter(character => character !== player)
-    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount + 1, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) 
+    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount + 1}) 
   }
 
   findPlayer = (name) => {
@@ -82,18 +89,18 @@ class App extends Component  {
   render = () => {
     return (
       <div className="App">
-        <Header />
+        <Header playerCount={this.state.playerCount}/>
         <Routes>
           <Route path="*" element={<ErrorPage/>}></Route>
           <Route path="/" element={
-            <Grid key={Date.now()} characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} msg={this.state.msg}></Grid>
+            <Grid key={Date.now()} characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} msg={this.state.msg}selectedPlayers={this.state.team}></Grid>
             }
           />
           <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer} findPlayer={this.findPlayer} characters={this.state.characters}/>}></Route>
           <Route path="/fellowship" element={<Fellowship key={Date.now()} team={this.state.team} findPlayer={this.findPlayer} removePlayer={this.removePlayer} />}></Route>
         </Routes>
         <footer className="footer">
-            Created by Delilah Rose 🧝‍♀️
+            <p className="footer-text">Created by Delilah Rose 🧝‍♀️</p>
         </footer>
       </div>
     )

@@ -4,7 +4,7 @@ import Character from '../Character/Character';
 import {Link} from 'react-router-dom';
 import './Grid.css';
 
-const Grid = ({characters, findPlayer, addPlayer, msg}) => {
+const Grid = ({characters, findPlayer, addPlayer, msg, selectedPlayers}) => {
 
   const players = characters.map(character => {
 
@@ -17,21 +17,28 @@ const Grid = ({characters, findPlayer, addPlayer, msg}) => {
     return (
       <div className="player-container">
         <Link to={`/${player.name.split(' ')[0]}`} style={{textDecoration: 'none'}}>
-          <Character key={key} player={character} stats={character[1]} image={image} findPlayer={findPlayer} addPlayer={addPlayer}></Character>
+          <Character key={key} player={character} stats={character[1]} image={image} findPlayer={findPlayer} addPlayer={addPlayer} selectedPlayers={selectedPlayers}></Character>
         </Link>
-        <button className="add-player-btn" id={player.id} onClick={() => addPlayer(character)}>Add {firstName} to Fellowship</button>
+        <button className="add-player-btn" id={player.id} onClick={() => addPlayer(character)}>{firstName}</button>
       </div>
      )
     }
   )
 
+  const errorMessage = () => {
+    if(!msg.length) {
+      return 'Please select your players.'
+    } else {
+      return msg
+    }
+  }
+
   return (
     <>
       <section className="greeting">
         <h2 className="welcome-header">Welcome to Fantasy Fellowship.</h2>
-        <p className="welcome-p">Please select your players.</p>
+        <p className="welcome-p">{errorMessage()}</p>
       </section>
-      <section key={Date.now()} className="error-msg">{msg}</section>
       <div className="grid">
         {players}
       </div>
@@ -43,5 +50,5 @@ export default Grid;
 
   Grid.propTypes = {
     characters: PropTypes.arrayOf(PropTypes.object).isRequired,
-    msg: PropTypes.string.isRequired
+    msg: PropTypes.string
   }
