@@ -4,7 +4,7 @@ import Character from '../Character/Character';
 import {Link} from 'react-router-dom';
 import './Grid.css';
 
-const Grid = ({characters, findPlayer, addPlayer, msg}) => {
+const Grid = ({characters, findPlayer, addPlayer, msg, selectedPlayers}) => {
 
   const players = characters.map(character => {
 
@@ -17,7 +17,7 @@ const Grid = ({characters, findPlayer, addPlayer, msg}) => {
     return (
       <div className="player-container">
         <Link to={`/${player.name.split(' ')[0]}`} style={{textDecoration: 'none'}}>
-          <Character key={key} player={character} stats={character[1]} image={image} findPlayer={findPlayer} addPlayer={addPlayer}></Character>
+          <Character key={key} player={character} stats={character[1]} image={image} findPlayer={findPlayer} addPlayer={addPlayer} selectedPlayers={selectedPlayers}></Character>
         </Link>
         <button className="add-player-btn" id={player.id} onClick={() => addPlayer(character)}>{firstName}</button>
       </div>
@@ -29,7 +29,7 @@ const Grid = ({characters, findPlayer, addPlayer, msg}) => {
     if(!msg.length) {
       return 'Please select your players.'
     } else {
-      return setTimeout(() => {console.log('timeout is working')}, 2000)
+      return msg
     }
   }
 

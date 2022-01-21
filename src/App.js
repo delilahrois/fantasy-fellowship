@@ -16,7 +16,6 @@ class App extends Component  {
       characters: [],
       team: [],
       selectedPlayer: '',
-      errorMessage: '',
       playerCount: 9,
       msg: ''
     }
@@ -59,7 +58,9 @@ class App extends Component  {
     }
 
     if(this.state.team.includes(player)) {
-      this.setState({msg: 'Your Fellowship is unable to accept the same player twice.'})
+      const firstName = player.name.split(' ')[0]
+      this.setState({msg: `${firstName} is already part of your Fellowship.`})
+      setTimeout(() => {this.setState({msg: ''})}, 2000)
     }
 
     if(this.state.playerCount < 1) {
@@ -69,7 +70,7 @@ class App extends Component  {
 
   removePlayer = (player) => {
     const filteredPlayers = this.state.team.filter(character => character !== player)
-    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount + 1, msg: this.state.playerCount > 1 ? `You have ${this.state.playerCount} slots in your Fellowship.` : 'You have 1 slot in your Fellowship.' }) 
+    this.setState({ team: [ ...filteredPlayers ], playerCount: this.state.playerCount + 1}) 
   }
 
   findPlayer = (name) => {
@@ -93,7 +94,7 @@ class App extends Component  {
         <Routes>
           <Route path="*" element={<ErrorPage/>}></Route>
           <Route path="/" element={
-            <Grid key={Date.now()} characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} msg={this.state.msg}></Grid>
+            <Grid key={Date.now()} characters={this.state.characters} findPlayer={this.findPlayer} addPlayer={this.addPlayer} msg={this.state.msg}selectedPlayers={this.state.team}></Grid>
             }
           />
           <Route path="/:name" element={<CharacterPage player={this.state.selectedPlayer} addPlayer={this.addPlayer} findPlayer={this.findPlayer} characters={this.state.characters}/>}></Route>

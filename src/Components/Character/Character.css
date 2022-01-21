@@ -5,3 +5,9 @@
 .grid-img:hover {
   box-shadow: 0px 0px 40px 10px #daa520;
 }
+
+.chosen {
+  box-shadow: 0px 0px 40px 10px #daa520;
+  height: 100%;
+  width: 100%;
+}
