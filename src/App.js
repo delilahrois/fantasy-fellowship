@@ -53,19 +53,27 @@ class App extends Component  {
   }
 
   addPlayer = (player) => {
-    if(!this.state.team.includes(player) && this.state.team.length < 9) {
-      this.setState({team: [...this.state.team, player], counter: this.state.playerCount--})
-    }
-
-    if(this.state.team.includes(player)) {
-      const firstName = player.name.split(' ')[0]
-      this.setState({msg: `${firstName} is already part of your Fellowship.`})
-      setTimeout(() => {this.setState({msg: ''})}, 2000)
-    }
 
     if(this.state.playerCount < 1) {
       this.setState({msg: 'Your Fellowship is full!'})
+      setTimeout(() => {this.setState({msg: ''})}, 2000)
     }
+
+    if(!this.state.team.includes(player) && this.state.team.length < 9) {
+      this.setState({team: [...this.state.team, player], counter: this.state.playerCount--})
+    } else {
+      this.removePlayer(player)
+    }
+
+    // if(this.state.team.includes(player)) {
+    //   const firstName = player.name.split(' ')[0]
+    //   this.setState({msg: `${firstName} is already part of your Fellowship.`})
+    //   setTimeout(() => {this.setState({msg: ''})}, 2000)
+    // }
+
+    // if(this.state.playerCount < 1) {
+    //   this.setState({msg: 'Your Fellowship is full!'})
+    // }
   }
 
   removePlayer = (player) => {
