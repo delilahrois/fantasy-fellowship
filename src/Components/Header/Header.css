@@ -21,9 +21,8 @@
 .nav-container {
   width: 60%;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  margin-right: 10%;
+  padding-left: 50%;
   font-size: 2vw;
 }
 
