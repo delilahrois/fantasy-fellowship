@@ -21,9 +21,8 @@
 .nav-container {
   width: 60%;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  margin-right: 10%;
+  padding-left: 50%;
   font-size: 2vw;
 }
 
@@ -40,4 +39,5 @@
 
 .counter {
   font-size: 4vw;
+  text-shadow: 5px 5px 20px #daa520;
 }
