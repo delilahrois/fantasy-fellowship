@@ -33,6 +33,7 @@ class App extends Component  {
         }
       })
       const responseJson = await response.json();
+      console.log(responseJson)
       const playerNames = ['Frodo Baggins', 'Samwise Gamgee', 'Peregrin Took', 'Meriadoc Brandybuck', 'Gandalf', 'Aragorn II Elessar', 'Legolas', 'Gimli', 'Bilbo Baggins', 'Boromir', 'Galadriel', 'Arwen', 'Gollum', 'Elrond', 'Éowyn', 'Radagast', 'Éomer', 'Celeborn', 'Faramir', 'Treebeard', 'Denethor II', 'Beorn', 'Bard', 'Théoden', 'Thorin II Oakenshield', 'Thranduil', 'Haldir (Lorien)'];
       const filteredCharacters = responseJson.docs.filter((character) => playerNames.includes(character.name));
       this.setState({characters: filteredCharacters}, this.createPlayers);
