@@ -2,15 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Character.css';
 
-const Character = ({player, findPlayer, selectedPlayers}) => {
+const Character = ({player, findPlayer, addPlayer, selectedPlayers}) => {
 
     let chosenClass;
 
-    if(!selectedPlayers.includes(player)) {
-      chosenClass = 'grid-img'
-    } else {
-      chosenClass = 'chosen'
-    }
+    !selectedPlayers.includes(player) ? chosenClass = 'grid-img' : chosenClass = 'chosen';
+    
 
   return (
     <>
