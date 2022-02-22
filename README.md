@@ -1,7 +1,7 @@
 #  🧙🏼‍♂️  Fantasy Fellowship  🧝‍♀️
 
 A React application for Tolkien lovers. Created by [Delilah Rose.](https://github.com/delilahrois)
-This deployed project can be accessed [here.](https://delilahrois.github.io/fantasy-fellowship/)
+This deployed project can be accessed [here.](https://fantasy-fellowship.netlify.app/)
 
 ![Screen Shot 2022-01-18 at 7 17 11 PM](https://user-images.githubusercontent.com/74752738/150041179-f7d9fcb6-5c6e-4362-8c7b-98bdbe8d74d8.png)
 
