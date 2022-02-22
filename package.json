@@ -1,6 +1,6 @@
 {
   "name": "fantasy-fellowship",
-  "homepage": "https://delilahrois.github.io/fantasy-fellowship/",
+  "homepage": ".",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
