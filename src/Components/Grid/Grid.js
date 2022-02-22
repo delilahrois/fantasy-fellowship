@@ -8,7 +8,6 @@ const Grid = ({characters, findPlayer, addPlayer, msg, selectedPlayers}) => {
 
   const players = characters.map(character => {
 
-    // const player = character;
     const firstName = character.name.split(' ')[0];
     const image = character.image;
     const key = character._id;
