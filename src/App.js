@@ -29,7 +29,7 @@ class App extends Component  {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': key
+          'Authorization': `Bearer ${key}`
         }
       })
       const responseJson = await response.json();
