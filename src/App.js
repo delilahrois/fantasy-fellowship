@@ -23,13 +23,13 @@ class App extends Component  {
 
 
   fetchData = async () => {
-    const key = process.env.REACT_APP_API_KEY;
+    const key = `Bearer ${process.env.REACT_APP_API_KEY}`;
     try {
       const response = await fetch('https://the-one-api.dev/v2/character', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${key}`
+          'Authorization': key
         }
       })
       const responseJson = await response.json();
